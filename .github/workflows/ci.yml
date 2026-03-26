@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18, 20]   # realistic support range
+        node-version: [18, 20]   # support range
 
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'   # ⚡ caching
+          cache: 'npm'   # caching
 
       - run: npm ci      # deterministic install (better than npm install)
 
@@ -40,6 +40,9 @@ jobs:
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v2
+        env:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
+            SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
             -Dsonar.projectKey=node-cicd-app
