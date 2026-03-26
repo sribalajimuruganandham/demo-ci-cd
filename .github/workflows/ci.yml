@@ -42,13 +42,12 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v2
         env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
-            SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
             -Dsonar.projectKey=node-cicd-app
+            -Dsonar.organization=sribalajimuruganandham
+            -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.sources=.
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       - name: Enforce Quality Gate
         uses: SonarSource/sonarqube-quality-gate-action@v1
