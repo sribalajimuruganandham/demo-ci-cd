@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@e44258b109568baa0df60ed515909fc6c72cba92
+        uses: SonarSource/sonarqube-scan-action@v2
         env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
         with:
