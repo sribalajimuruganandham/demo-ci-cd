@@ -1,6 +1,7 @@
 // app.test.js
 const request = require('supertest');
-const app = require('./index.js');
+const {app, server} = require('./index.js');
+afterAll(() => server.close()); // ← fixes the Jest hang
 
 describe('GET /', () => {
   it('should return CI', async () => {
