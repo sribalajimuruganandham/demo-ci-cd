@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("CI");
+  res.send({ message: 'CI' });
 });
 
 const server = app.listen(3000, () => console.log("Server running"));
