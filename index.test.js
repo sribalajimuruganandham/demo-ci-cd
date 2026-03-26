@@ -1,6 +1,6 @@
 // app.test.js
 const request = require('supertest');
-const app = require('./app');
+const app = require('./index.js');
 
 describe('GET /', () => {
   it('should return CI', async () => {
